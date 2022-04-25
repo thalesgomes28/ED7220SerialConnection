@@ -42,11 +42,12 @@ end
 function SerialConnection.serialConnectionWrite(options) -- options.portHandle= ? ,  options.data = 'PD,F,0'  (STRING)
    
    hex = string.tohex(option.data)
+
+   dec = string.fromhex(hex)
    --Teste
    -- Adicionar o \r no final do comando
-   hex = hex.."0D"  --concatena o \r no final do código
-   --Teste
-   dec = string.fromhex(hex)
+   dec = dec.."13"  --concatena o \r no final do código ASCII
+   --Teste  
 
 	int result=sim.serialSend(int options.portHandle, buffer dec) -- enviar um ponteiro?
 
